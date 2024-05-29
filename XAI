@@ -1,0 +1,8 @@
+import shap
+ 
+shap.initjs()
+ 
+explainer = shap.TreeExplainer(bst)
+shap_values = explainer.shap_values(X_train) # X_trainは訓練データのpandas.DataFrame
+ 
+shap.force_plot(explainer.expected_value, shap_values[0,:], X_train.iloc[0,:])
